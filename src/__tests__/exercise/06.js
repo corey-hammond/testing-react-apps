@@ -75,7 +75,7 @@ test('displays the users current location', async () => {
   render(<Location />)
   // 🐨 verify the loading spinner is showing up
   // 💰 tip: try running screen.debug() to know what the DOM looks like at this point.
-  expect(screen.getByLabelText(/loading/i)).not.toBeInTheDocument()
+  expect(screen.getByLabelText(/loading/i)).toBeInTheDocument()
   // 🐨 resolve the deferred promise
   // 🐨 wait for the promise to resolve
   // await act(async () => {
@@ -94,7 +94,7 @@ test('displays the users current location', async () => {
   })
   // 🐨 verify the loading spinner is no longer in the document
   //    (💰 use queryByLabelText instead of getByLabelText)
-  expect(screen.queryAllByLabelText(/loading/i)).not.toBeInTheDocument()
+  expect(screen.queryByLabelText(/loading/i)).not.toBeInTheDocument()
   // 🐨 verify the latitude and longitude appear correctly
   expect(screen.getByText(/latitude/i)).toHaveTextContent(
     `Latitude: ${fakePosition.coords.latitude}`,
